@@ -12,6 +12,15 @@ builder.Services.AddSwaggerGen();
 string cs = builder.Configuration.GetConnectionString("conStr");
 builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlServer(cs));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "MyPolicy", builder =>
+    {
+        builder.WithOrigins("http://localhost:4200").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
+
 
 var app = builder.Build();
 
