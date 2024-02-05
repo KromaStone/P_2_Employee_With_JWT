@@ -5,7 +5,7 @@
         public int Id { get; set; }
         public String Name { get; set; }
         public String Address { get; set; }
-        public int Sallary { get; set; }
+        public int salary { get; set; }
         
 
     }
